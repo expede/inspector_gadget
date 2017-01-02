@@ -3,6 +3,7 @@ defmodule InspectorGadget.Pipe do
 
   defmacro __using__(_) do
     quote do
+      require Logger
       import Kernel, except: [|>: 2]
       import unquote(__MODULE__)
     end
@@ -23,7 +24,7 @@ defmodule InspectorGadget.Pipe do
 
     quote do
       result = Kernel.|>(unquote(left), unquote(right))
-      IO.puts("#{inspect unquote(left)} |> #{unquote(function_tag)} = #{inspect result}")
+      Logger.info("#{inspect unquote(left)} |> #{unquote(function_tag)} = #{inspect result}")
       result
     end
   end
