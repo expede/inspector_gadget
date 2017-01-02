@@ -3,9 +3,9 @@ defmodule InspectorGadget.Pipe do
 
   defmacro __using__(_) do
     quote do
-      require Logger
       import Kernel, except: [|>: 2]
       import unquote(__MODULE__)
+      require Logger
     end
   end
 
