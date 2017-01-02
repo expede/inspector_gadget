@@ -39,11 +39,15 @@ use InspectorGadget.Pipe
 #=> 13:42:24.250 [info]  1 |> fn(x) = 2
 #=> 13:42:24.250 [info]  2 |> fn(y) = 200
 #=> 13:42:24.250 [info]  200 |> inspect = "200"
+```
 
-# Note that this prints in the order of evaluation,
-# so nested expressions are expected occur in a different sequence than the code
+Note that this prints in the order of evaluation, so nested expressions are expected occur in a different sequence than the code
 
-1 |> fn(x, y) -> x + y end.(6 |> fn z -> z * 10 end.())
+```elixir
+1
+|> fn(x, y) -> x + y end.(
+  6 |> fn z -> z * 10 end.()
+)
 #=> 13:44:02.649 [info]  6 |> fn(z) = 60
 #=> 13:44:02.649 [info]  1 |> fn(x, y) = 61
 ```
