@@ -19,9 +19,9 @@ defmodule InspectorGadget.Mixfile do
       source_url:   "https://github.com/expede/inspector_gadget",
       homepage_url: "https://github.com/expede/inspector_gadget",
 
-      aliases: ["quality": ["test", "espec", "credo --strict", "inch"]],
+      aliases: ["quality": ["test", "credo --strict", "inch"]],
 
-      build_embedded: Mix.env == :prod,
+      build_embedded:  Mix.env == :prod,
       start_permanent: Mix.env == :prod,
 
       deps: [
